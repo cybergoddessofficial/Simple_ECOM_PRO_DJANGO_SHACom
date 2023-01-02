@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends 'admin/index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Student Registeration</h4>
+
+                    <form class="forms-sample" method="post" action="{% url 'addstudent' %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" name="fname" class="form-control" id="exampleInputName1" placeholder="Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleSelectGender">Gender</label>
+                        <select class="form-control" id="exampleSelectGender" name="gender">
+                          <option  value="male">Male</option>
+                          <option  value="female">Female</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="file" name="pic" class="form-control file-upload-info"  placeholder="Upload Image">
+
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputCity1">City</label>
+                        <input type="text" name="city" class="form-control" id="exampleInputCity1" placeholder="Location">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleTextarea1">Address</label>
+                        <textarea class="form-control" name="address" id="exampleTextarea1" rows="4"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary me-2">Add Student</button>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}

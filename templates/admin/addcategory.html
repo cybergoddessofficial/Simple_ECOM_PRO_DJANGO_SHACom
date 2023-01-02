@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'admin/index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add Category</h4>
+
+                    <form class="forms-sample" method="post" action="{% url 'addcategory' %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="exampleInputName1">Category Name</label>
+                        <input type="text" name="cname" class="form-control" id="exampleInputName1" placeholder="Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Description</label>
+                          <textarea class="form-control" name="cdesc"></textarea>
+                      </div>
+
+
+                      <div class="form-group">
+                        <label>Image</label>
+
+                        <div class="input-group col-xs-12">
+                          <input type="file" name="pic" class="form-control file-upload-info"  placeholder="Upload Image">
+
+                        </div>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary me-2">Add Category</button>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}
